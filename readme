@@ -1,0 +1,4 @@
+Install Npm by running npm i
+Create local database & name as stackoverflowdb
+Migrate Table by running knex migrate:latest 
+Run index file by node server index.js

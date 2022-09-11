@@ -5,13 +5,13 @@
  */
 module.exports = {
 
-  
+
 
   development: {
     client: 'postgresql',
     connection: {
       database: 'stackoverflowdb',
-      user:     'postgres',
+      user: 'postgres',
       password: 'vijay'
     },
     pool: {
@@ -22,6 +22,6 @@ module.exports = {
     }
   }
 
-  
+
 
 };

@@ -50,22 +50,22 @@ router.post('', async (req, res) => {
     return res.status(400).send('db error')
   }
   else {
-    let  token=jwt.sign({id:createUser},'jwtPrivateKey');
-    return res.status(200).json({'message':'success','response_objects':{'token':token,'userId': createUser}})
+    let token = jwt.sign({ id: createUser }, 'jwtPrivateKey');
+    return res.status(200).json({ 'message': 'success', 'response_objects': { 'token': token, 'userId': createUser } })
   }
 
 })
 
-router.get('/:user_id',authencation, async (req, res) => {
+router.get('/:user_id', authencation, async (req, res) => {
   let id = req.params['user_id'];
 
-  
-
-  const getUser=await userModel.usersGetById(id)
-   return res.status(200).json({getUser})
 
 
-  
+  const getUser = await userModel.usersGetById(id)
+  return res.status(200).json({ getUser })
+
+
+
 
 })
 
