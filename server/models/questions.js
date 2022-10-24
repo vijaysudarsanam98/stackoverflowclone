@@ -32,11 +32,22 @@ module.exports.deleteQuestion = async function (id) {
     }
 }
 
-module.exports.checkExistsQuestion = async function (question) {
+module.exports.checkExistsQuestion = async function (questionId) {
     let sqlQuery = 'SELECT id FROM questions WHERE is_disabled = false AND question = $1';
-    let response = await db.executeSql(sqlQuery, [question]);
+    let response = await db.executeSql(sqlQuery, [questionId]);
     if (response.rows[0] != null && response.rows[0] !== undefined) {
         return 'question already exists';
+    } else {
+        return '';
+    }
+}
+
+module.exports.updateQuestion = async function(question,id){
+
+    let sqlQuery=`UPDATE QUESTIONS SET  question=$1 where id=$2`
+    let response = await db.executeSql(sqlQuery,[question,id])
+    if (response.rows != null && response.rows !== undefined) {
+        return response.rows[0]
     } else {
         return '';
     }
